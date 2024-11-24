@@ -1,0 +1,45 @@
+Now let's verify the result using pen and paper:
+Given data: 11011011
+    Step 1: Divide into 4-bit segments
+    1101 1011
+    Step 2: Convert each segment to decimal
+    1101 = 13
+    1011 = 11
+    Step 3: Add the decimal values
+    13 + 11 = 24
+    Step 4: Keep only 4 bits (mod 16)
+    24 mod 16 = 8
+    Step 5: Take 1's complement (subtract from 15)
+    15 - 8 = 7
+    Step 6: Convert checksum (7) to binary
+    7 = 0111
+    
+Therefore:
+
+Original data: 11011011
+Checksum: 0111
+Encoded data: 11011011|0111
+
+Verification:
+
+The segments are correctly separated: 1101 1011
+Decimal conversion is correct:
+
+1101 = 1×8 + 1×4 + 0×2 + 1×1 = 13
+1011 = 1×8 + 0×4 + 1×2 + 1×1 = 11
+
+
+Sum calculation: 13 + 11 = 24
+Mod 16: 24 mod 16 = 8
+One's complement: 15 - 8 = 7
+Final binary checksum: 0111
+
+The program correctly:
+
+Splits the input into 4-bit segments
+Converts each segment to decimal
+Adds the decimal values
+Takes mod 16 to keep 4 bits
+Calculates 1's complement
+Converts back to binary
+Appends the checksum to original data
